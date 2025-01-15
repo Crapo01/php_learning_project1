@@ -1,6 +1,6 @@
 <?php
 // __DIR__ variable magique qui definit le dossier ou se trouve index.php puis on concat le chemin
-require_once (__DIR__ . '/config/database.php');
+
 require_once (__DIR__ . '/includes/header.php');
 
 ?>
