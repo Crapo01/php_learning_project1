@@ -2,7 +2,8 @@
 
 require_once (__DIR__ . '/../../includes/header.php');
 require_once (__DIR__ . '/../../config/database.php');
-$stm = $pdo->query("SELECT id,name FROM `product`");
+require_once (__DIR__ . '/../../config/global.php');
+$stm = $pdo->query("SELECT id,name,file FROM `product`");
 $rows = $stm->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
@@ -23,7 +24,7 @@ $rows = $stm->fetchAll(PDO::FETCH_ASSOC);
                     <?php foreach ($rows as $row) {?>
                         <div class="col-md-4">
                             <div class="card mb-4 box-shadow">
-                                <img class="img-fluid" src="https://fakeimg.pl/250x100/"/>
+                            <img class="img-fluid" src="<?= BASE_URL?>uploads/<?= $row['file']?>"/>
                                 <div class="card-body">
                                     <p class="card-text"><?= $row['name']?> </p>
                                 <a href="show.php?id=<?=$row['id']?>">Afficher le produit</a>

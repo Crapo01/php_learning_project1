@@ -20,4 +20,3 @@ require_once (__DIR__.'/../config/global.php')
     </nav>
 </header>
 
-<?= __DIR__;
