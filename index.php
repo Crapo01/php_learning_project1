@@ -1,29 +1,34 @@
 <?php
 // __DIR__ variable magique qui definit le dossier ou se trouve index.php puis on concat le chemin
-
+session_start();
 require_once (__DIR__ . '/includes/header.php');
+
+var_dump($_SERVER);
 
 ?>
 
-    <main role="main">
+<main role="main">
 
-        <div class="py-5 bg-light">
-            <div class="container">
-                <div class="row">
-                    <?php
-
-                    $products = ['name' => 'produit', 'image' => 'https://fakeimg.pl/250x100/'];
-
-                    for ($i=0; $i<=10; $i++) {
-                        echo '<div class="col-md-4"><div class="card mb-4 box-shadow"><img class="img-fluid" src="' . $products['image'] .'"/><div class="card-body"><p class="card-text">' . $products['name'] . ' ' . $i .'</p></div></div></div>';
-                    }
-
-                    ?>
-                </div>
-            </div>
+<div class="py-5 bg-light">
+    <div class="container">
+        <div class="row">
+            <?php if (isset($_SESSION['user_id'])) { ?>
+                <p>
+                    <a href="src/user/logout.php" class="btn btn-success">Logout</a>
+                </p>
+            <?php } else{ ?>
+            <p>
+                <a href="src/user/new.php" class="btn btn-success">Créer un compte</a>
+            </p>
+            <p>
+                <a href="src/user/login.php" class="btn btn-primary">Login</a>
+            </p>
+            <?php } ?>
         </div>
+    </div>
+</div>
 
-    </main>
+</main>
 
 
 <?php
